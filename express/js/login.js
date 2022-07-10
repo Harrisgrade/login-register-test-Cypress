@@ -1,40 +1,37 @@
-const loginButton = document.getElementById("signInBtn");
-const username = document.getElementById("username");
-const password = document.getElementById("password");
-const termsBox = document.getElementById("terms")
-const loginForm = document.querySelector("#login");
-const redirectURL = "products.html";
+const form = document.getElementById('form');
+const errorMsg = document.getElementById('errormsg');
+const loginButton = document.getElementById('signInBtn');
+const username = document.getElementById('user');
+const password = document.getElementById('password');
+const termsBox = document.getElementById('terms');
+const redirectURL = 'products.html';
 
-function setFormMessage(formElement, type, message) {
-    const messageElement = formElement.querySelector(".form__message");
-    messageElement.textContent = message;
-    messageElement.classList.remove("form__message--success", "form__message--error");
-    messageElement.classList.add(`form__message--${type}`);
+function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'form-custom error';
+	small.innerText = message;
 }
 
-loginButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    if(username.value == "user" 
-	&& password.value == "123") {
-        setFormMessage(loginForm, "success", "Success!");
-	window.location.href = redirectURL;
-		  	
-    } else {
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'form-custom success';
+}
+
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	if (username.value == 'user' && password.value == '123') {
+		window.location.href = redirectURL;
+	} else {
+		setErrorFor(errorMsg, 'Invalid Username/Password Combination');
 	}
-})
+});
 
-termsBox.addEventListener("change", (e) => {
-    e.preventDefault();
-    if (e.target.checked) {
-      loginButton.disabled = false;
-    } else {
-      loginButton.disabled = true;
-    }
-  });
-
-
-
- 
-
-  
+termsBox.addEventListener('change', (e) => {
+	e.preventDefault();
+	if (e.target.checked) {
+		loginButton.disabled = false;
+	} else {
+		loginButton.disabled = true;
+	}
+});
