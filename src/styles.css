@@ -99,25 +99,8 @@
 	border-color: #e74c3c;
 }
 
-.form-custom i {
-	visibility: hidden;
-	position: absolute;
-	top: 40px;
-	right: 10px;
-}
-
-.form-custom.success i.fa-check-circle {
-	color: #2ecc71;
-	visibility: visible;
-}
-
-.form-custom.error i.fa-exclamation-circle {
-	color: #e74c3c;
-	visibility: visible;
-}
-
 .form-custom small {
-	color: #e74c3c;
+
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -125,6 +108,11 @@
 }
 
 .form-custom.error small {
+	color: #e74c3c;
+	visibility: visible;
+}
+.form-custom.success small {
+	color: #2ecc71;
 	visibility: visible;
 }
 

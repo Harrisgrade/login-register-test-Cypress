@@ -22,13 +22,13 @@ function checkInputs() {
 	if(nameValue === '') {
 		setErrorFor(user, 'Name cannot be blank');
 	} else {
-		setSuccessFor(user);
+		setSuccessFor(user,'Success');
 	}
 	
 	if(usernameValue === '') {
 		setErrorFor(username, 'Username cannot be blank');
 	} else {
-		setSuccessFor(username);
+		setSuccessFor(username,'Success');
 	}
 	
 	if(emailValue === '') {
@@ -36,13 +36,13 @@ function checkInputs() {
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'Not a valid email');
 	} else {
-		setSuccessFor(email);
+		setSuccessFor(email,'Valid Email');
 	}
 	
 	if(passwordValue === '') {
 		setErrorFor(password, 'Password cannot be blank');
 	} else {
-		setSuccessFor(password);
+		setSuccessFor(password, 'Valid Password');
 	}
 	
 	if(password2Value === '') {
@@ -50,7 +50,7 @@ function checkInputs() {
 	} else if(passwordValue !== password2Value) {
 		setErrorFor(password2, 'Passwords does not match');
 	} else{
-		setSuccessFor(password2);
+		setSuccessFor(password2, 'Passwords Match');
 	}
 }
 
@@ -61,9 +61,11 @@ function setErrorFor(input, message) {
 	small.innerText = message;
 }
 
-function setSuccessFor(input) {
+function setSuccessFor(input, message) {
 	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
 	formControl.className = 'form-custom success';
+	small.innerText = message;
 }
 	
 function isEmail(email) {

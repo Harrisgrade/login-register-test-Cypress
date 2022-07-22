@@ -2,7 +2,7 @@ import LoginPage from '../elements/LoginPage'
 const loginpage = new LoginPage()
 
 
-describe('example to-do app', () => {
+describe('login page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
   })
