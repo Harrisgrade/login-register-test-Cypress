@@ -4,7 +4,7 @@ const loginButton = document.getElementById('signInBtn');
 const username = document.getElementById('user');
 const password = document.getElementById('password');
 const termsBox = document.getElementById('terms');
-const redirectURL = 'products.html';
+const redirectURL = 'homepage.html';
 
 function setErrorFor(input, message) {
 	const formControl = input.parentElement;
