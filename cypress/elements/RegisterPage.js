@@ -1,4 +1,14 @@
 class RegisterPage {
+    getFormFill() {
+        return cy.get('[data-cy="form"]').within(() => {
+			cy.get('[data-cy="reg-name"]').type('Ash J. Williams')
+			cy.get('[data-cy="reg-username"]').type('the chosen one')
+            cy.get('[data-cy="reg-email"]').type('Klaatu@Barada.cough')
+            cy.get('[data-cy="reg-password"]').type('S-Mart')
+            cy.get('[data-cy="reg-password-confirm"]').type('S-Mart')
+            cy.get('[data-cy="reg-submit-btn"]').click({force:true})
+		})
+    }
     getRegName() {
       return  cy.get('[data-cy="reg-name"]');
     }
