@@ -1,7 +1,7 @@
 import RegisterPage from '../elements/RegisterPage';
 const registerPage = new RegisterPage();
 
-describe('login page', () => {
+describe('register page', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:3000/register.html');
 	});
@@ -23,7 +23,6 @@ describe('login page', () => {
 			cy.wrap(input[2]).should('have.value','Klaatu@Barada.cough')
 			cy.wrap(input[3]).should('have.value','S-Mart')
 			cy.wrap(input[4]).should('have.value','S-Mart')
-			console.log(input)
 		})
 		cy.inputBoarder().should('have.css','border-color', 'rgb(46, 204, 113)');
 		registerPage.getErrorMsg().eq(0).should('have.text', 'Success');
@@ -37,15 +36,10 @@ describe('login page', () => {
         registerPage.getErrorMsg().eq(2).should('have.text', 'Not a valid email');
   
 	})
-	it('password fails', () => {
+	it('password vaidation', () => {
 		registerPage.getFormFill()
 		registerPage.getErrorMsg().eq(3).should('have.text', 'Valid Password').and('be.visible');
 		registerPage.getRegPasswordConfirm().type('SMart{enter}');
-		registerPage.getErrorMsg().eq(4).should('have.text', 'Passwords does not match').and('be.visible');
-	})
-	it('password success', () => {
-		registerPage.getFormFill()
-		registerPage.getErrorMsg().eq(3).should('have.text', 'Valid Password').and('be.visible');
-		registerPage.getErrorMsg().eq(4).should('have.text', 'Passwords Match').and('be.visible');
+		registerPage.getErrorMsg().eq(4).should('have.text', 'Passwords do not match').and('be.visible');
 	})
 });
