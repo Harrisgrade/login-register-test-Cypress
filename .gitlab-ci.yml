@@ -1,0 +1,22 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+
+test:
+  stage: test
+  script:
+    - npx cypress run --headless --spec "cypress/e2e/**/*"
+
+deploy:
+  stage: deploy
+  script:
+    - ./deploy_to_production.sh
+  only:
+    - master  # Trigger deployment on main branch
