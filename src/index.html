@@ -37,13 +37,6 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
-    <!-- =======================================================
-  * Template Name: Gp
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Updated: Aug 15 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
   </head>
 
   <body class="index-page">
@@ -55,8 +48,6 @@
           href="index.html"
           class="logo d-flex align-items-center me-auto me-lg-0"
         >
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
           <h1 class="sitename">Arrow</h1>
           <span>.</span>
         </a>
@@ -72,23 +63,34 @@
             <li><a href="#team">Team</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
-              <div class="form-group">
+              <div class="form-group" style="position: relative">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Search"
                   id="input-datalist"
-                  list="list-search"
                 />
-                <datalist id="list-search"></datalist>
+                <div
+                  id="popover"
+                  class="popover-dropdown"
+                  style="
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    z-index: 1000;
+                    background: white;
+                    border: 1px solid #ccc;
+                    display: none;
+                    width: 100%;
+                  "
+                ></div>
               </div>
-              
+
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   const input = document.getElementById("input-datalist");
-                  const datalist = document.getElementById("list-search");
-              
-                  // Predefined suggestions array
+                  const popover = document.getElementById("popover");
+
                   const suggestions = [
                     "Locations",
                     "Articles",
@@ -102,35 +104,75 @@
                     "Terms",
                     "Feedback",
                   ];
-              
+
                   input.addEventListener("input", () => {
                     const query = input.value.toLowerCase();
-              
-                    // Clear previous suggestions
-                    datalist.innerHTML = "";
-              
-                    // Filter suggestions based on user input
+                    popover.innerHTML = ""; // Clear previous suggestions
+
+                    // Filter suggestions
                     const filteredSuggestions = suggestions.filter((item) =>
                       item.toLowerCase().includes(query)
                     );
-              
-                    // Populate datalist with filtered suggestions
-                    filteredSuggestions.forEach((suggestion) => {
-                      const option = document.createElement("option");
-                      option.value = suggestion;
-                      datalist.appendChild(option);
-                    });
+
+                    if (filteredSuggestions.length > 0) {
+                      popover.style.display = "block"; // Always visible
+                      filteredSuggestions.forEach((suggestion) => {
+                        const option = document.createElement("div");
+                        option.textContent = suggestion;
+                        option.addEventListener("click", () => {
+                          input.value = suggestion;
+                          popover.style.display = "none"; // Hide after selection
+                        });
+                        popover.appendChild(option);
+                      });
+                    } else {
+                      popover.style.display = "none"; // Hide if no suggestions
+                    }
+                  });
+
+                  // Ensure the dropdown doesn't disappear when interacting
+                  document.addEventListener("click", (e) => {
+                    if (
+                      !input.contains(e.target) &&
+                      !popover.contains(e.target)
+                    ) {
+                      popover.style.display = "none";
+                    }
                   });
                 });
               </script>
-              
+
+              <style>
+                .popover-dropdown {
+                  display: block; /* Always visible */
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  z-index: 1000;
+                  background: white;
+                  border: 1px solid #ccc;
+                  width: 100%;
+                  max-height: 200px; /* Add scroll if there are too many options */
+                  overflow-y: auto;
+                  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional styling */
+                }
+
+                .popover-dropdown div {
+                  padding: 10px;
+                  cursor: pointer;
+                }
+
+                .popover-dropdown div:hover {
+                  background-color: #f1f1f1;
+                }
+              </style>
             </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
         <div>
           <a class="btn-getstarted" href="./login.html">Sign In</a>
-        <a class="btn-getstarted" href="./reg.html">Sign Up</a>
+          <a class="btn-getstarted" href="./reg.html">Sign Up</a>
         </div>
         <!-- <a class="btn-getstarted" href="./login.html">Sign In</a> -->
       </div>

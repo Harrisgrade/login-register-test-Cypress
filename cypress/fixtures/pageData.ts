@@ -2,6 +2,7 @@ export const pageData = {
     baseUrl: 'http://localhost:3000/',
     signinUrl: 'http://localhost:3000/login.html',
     signupUrl: 'http://localhost:3000/reg.html',
+    homepageUrl: 'http://localhost:3000/',
 
     blankFieldMsgs: [
         'Name cannot be blank',
