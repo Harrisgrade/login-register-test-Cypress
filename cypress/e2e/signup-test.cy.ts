@@ -8,16 +8,9 @@ describe("Signup test cases", () => {
   it("displays error msg when inputs are empty", () => {
     cy.get(signupSelectors.getRegSignInBtn).click();
     cy.validateResults(signupSelectors.getMsg, data.pageData.blankFieldMsgs);
-    // cy.get(signupSelectors.getMsg)
-    //   .should(($el) => {
-    //     const texts = $el.map((i, el) => Cypress.$(el).text());
-    //     const erMsgText = texts.get();
-    //     expect(erMsgText).to.have.length(5);
-    //     expect(erMsgText).to.deep.eq(data.pageData.blankFieldMsgs);
-    //   })
-    //   .and("be.visible");
   });
   it("form validation", () => {
+    cy.get(signupSelectors.getForm)
     cy.get(signupSelectors.getForm).within(() => {
       cy.get(signupSelectors.getRegName).type(data.validFormFill.name);
       cy.get(signupSelectors.getRegUsername).type(data.validFormFill.username);
