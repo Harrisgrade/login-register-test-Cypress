@@ -1,19 +1,21 @@
 import { signupSelectors } from "../selectors/signup-selectors";
 import * as data from "../fixtures/pageData";
+
 describe("Signup test cases", () => {
   beforeEach(() => {
     cy.visit(data.pageData.signupUrl);
   });
   it("displays error msg when inputs are empty", () => {
     cy.get(signupSelectors.getRegSignInBtn).click();
-    cy.get(signupSelectors.getMsg)
-      .should(($el) => {
-        const texts = $el.map((i, el) => Cypress.$(el).text());
-        const erMsgText = texts.get();
-        expect(erMsgText).to.have.length(5);
-        expect(erMsgText).to.deep.eq(data.pageData.blankFieldMsgs);
-      })
-      .and("be.visible");
+    cy.validateResults(signupSelectors.getMsg, data.pageData.blankFieldMsgs);
+    // cy.get(signupSelectors.getMsg)
+    //   .should(($el) => {
+    //     const texts = $el.map((i, el) => Cypress.$(el).text());
+    //     const erMsgText = texts.get();
+    //     expect(erMsgText).to.have.length(5);
+    //     expect(erMsgText).to.deep.eq(data.pageData.blankFieldMsgs);
+    //   })
+    //   .and("be.visible");
   });
   it("form validation", () => {
     cy.get(signupSelectors.getForm).within(() => {
@@ -25,14 +27,7 @@ describe("Signup test cases", () => {
         data.validFormFill.password_confirm
       );
       cy.get(signupSelectors.getRegSignInBtn).click();
-      cy.get(signupSelectors.getMsg)
-        .should(($el) => {
-          const texts = $el.map((i, el) => Cypress.$(el).text());
-          const erMsgText = texts.get();
-          expect(erMsgText).to.have.length(5);
-          expect(erMsgText).to.deep.eq(data.pageData.successFieldMsgs);
-        })
-        .and("be.visible");
+      cy.validateResults(signupSelectors.getMsg, data.pageData.successFieldMsgs);
     });
   });
   it("email fails", () => {

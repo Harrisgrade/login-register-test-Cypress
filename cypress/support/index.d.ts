@@ -1,7 +1,9 @@
-// <reference types="cypress" />
+/// <reference types="cypress" />
 
 declare namespace Cypress {
 	interface Chainable<Subject = any> {
-		verifyMessages(selector: string, expectedMessages: string): Chainable<any>;
+		verifyScroll(): Chainable<any>;
+        isScrolledTo(selector: string): Chainable<any>;
+        validateResults(selector: string, item: any) : Chainable<any>;
 	}
 }

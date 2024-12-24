@@ -1,36 +1,43 @@
 export const pageData = {
-    baseUrl: 'http://localhost:3000/',
-    signinUrl: 'http://localhost:3000/login.html',
-    signupUrl: 'http://localhost:3000/reg.html',
-    homepageUrl: 'http://localhost:3000/',
+  baseUrl: "http://localhost:3000/",
+  signinUrl: "http://localhost:3000/login.html",
+  signupUrl: "http://localhost:3000/reg.html",
+  homepageUrl: "http://localhost:3000/",
+  loginErrMsg: "Invalid Username/Password Combination",
 
-    blankFieldMsgs: [
-        'Name cannot be blank',
-        'Username cannot be blank',
-        'Email cannot be blank',
-        'Password cannot be blank',
-        'Password Confirm cannot be blank'
-    ],
-    successFieldMsgs: [
-        'Success',
-        'Success',
-        'Valid Email',
-        'Valid Password',
-        'Passwords Match'
-    ]
-}
+  blankFieldMsgs: [
+    "Name cannot be blank",
+    "Username cannot be blank",
+    "Email cannot be blank",
+    "Password cannot be blank",
+    "Password Confirm cannot be blank",
+  ],
+  successFieldMsgs: [
+    "Success",
+    "Success",
+    "Valid Email",
+    "Valid Password",
+    "Passwords Match",
+  ],
+  homepageLinks: [
+    "Home", 
+    "About", 
+    "Services", 
+    "Portfolio", 
+    "Team", 
+    "Contact"],
+};
 
 export const validFormFill = {
-    name: 'Ash J. Williams',
-    username: 'the chosen one',
-    email: 'Klaatu@Barada.cough',
-    password: 'S-Mart',
-    password_confirm:'S-Mart'
+  name: "Ash J. Williams",
+  username: "the chosen one",
+  email: "Klaatu@Barada.cough",
+  password: "S-Mart",
+  password_confirm: "S-Mart",
 };
 
 export const invalidFormFill = {
-    email: 'KlaatuBarada.cough',
-    password: 'SMart',
-    password_confirm:'S-Mart'
+  email: "KlaatuBarada.cough",
+  password: "SMart",
+  password_confirm: "S-Mart",
 };
-

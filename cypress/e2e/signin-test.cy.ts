@@ -24,7 +24,7 @@ describe("login page", () => {
       cy.wrap($btn).should("have.attr", "href", "reg.html");
       cy.wrap($btn).should("have.text", "Register here").click();
     });
-    cy.title().should("eq", "Register");
+    cy.title().should("eq", "Sign up");
   });
 });
 context("login page terms checked", () => {
@@ -35,7 +35,7 @@ context("login page terms checked", () => {
   it("displays error msg when inputs are empty", () => {
     cy.get(loginSelectors.getSignInBtn).click();
     cy.get(loginSelectors.getErrorMsg)
-    .should("have.text", "Invalid Username/Password Combination").and("be.visible");
+    .should("have.text", pageData.loginErrMsg).and("be.visible");
     
   });
   it("displays error msg with invalid credentials", () => {
