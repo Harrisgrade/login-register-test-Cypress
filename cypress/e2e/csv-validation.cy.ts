@@ -8,9 +8,10 @@ describe("homepage test cases", () => {
   it("csv download and data validation", () => {
     cy.get(homepageSelectors.getMockDataPage).scrollIntoView();
     cy.get(homepageSelectors.getMockDataBtn).click();
+    
     cy.readFile("cypress/downloads/dummy.csv").then((fileContent) => {
-      const csvDataArray = fileContent.split("\n").map((row) => row.split(","));
-      cy.wrap(csvDataArray).should("deep.equal", data.csvDataArray);
+        const normalize = (fileContent) => fileContent.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+        cy.wrap(normalize(fileContent)).should("equal", normalize(data.csvDataArray.join('\n')));
     });
   });
 });
