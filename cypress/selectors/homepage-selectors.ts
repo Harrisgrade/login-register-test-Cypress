@@ -8,6 +8,8 @@ export const homepageSelectors = {
     getSignInBtn: '[href="./login.html"]',
     getSignUpBtn: '[href="./reg.html"]',
     getEllipsis: '.mobile-nav-toggle',
-    getScrollTopBtn: '#scroll-top'
+    getScrollTopBtn: '#scroll-top',
+    getMockDataPage: '#call-to-action',
+    getMockDataBtn: '.cta-btn',
     
 }
