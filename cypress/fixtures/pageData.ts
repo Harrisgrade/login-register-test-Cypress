@@ -1,5 +1,3 @@
-import { use } from "chai";
-
 export const pageData = {
   baseUrl: "http://localhost:3000/",
   signinUrl: "http://localhost:3000/login.html",
@@ -58,15 +56,4 @@ export const invalidFormFill = {
     ['tom powers', 'tp@aol.com', 'FALSE', '9/12/2020', 'data_data.csv\r'],
     [""]
   ];
-  
 
-// export const csvDat = [
-//   { user: "", user_email: "", subscribed: "", date: "", source: "" },  
-//   { user: "sam spint", user_email: "ssprint@outlook.com", subscribed: "TRUE", date: "6/1/2021", source: "data_data.csv" },
-//   { user: "brandy bank", user_email: "bbrandy@gmail.com", subscribed: "TRUE", date: "8/10/2020", source: "data_data.csv" },
-//   { user: "harry homes", user_email: "hhomes@aol.com", subscribed: "FALSE", date: "1/2/2023", source: "data_data.csv" },
-//   { user: "tony tiger", user_email: "ttiger@yahoo.com", subscribed: "FALSE", date: "7/9/2022", source: "data_data.csv" },
-//   { user: "bruce bond", user_email: "bbond@gmail.com", subscribed: "TRUE", date: "4/25/2020", source: "data_data.csv" },
-//   { user: "luke luck", user_email: "lluck@hotmailcom", subscribed: "TRUE", date: "8/9/2020", source: "data_data.csv" },
-//   { user: "tom powers", user_email: "tp@aol.com", subscribed: "FALSE", date: "9/12/2020", source: "data_data.csv" }
-// ];
