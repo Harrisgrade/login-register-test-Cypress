@@ -5,5 +5,6 @@ declare namespace Cypress {
 		verifyScroll(): Chainable<any>;
         isScrolledTo(selector: string): Chainable<any>;
         validateResults(selector: string, item: any) : Chainable<any>;
+		parseCsv(content: any) : Chainable<any>;
 	}
 }

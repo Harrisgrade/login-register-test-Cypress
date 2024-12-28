@@ -46,15 +46,13 @@ export const invalidFormFill = {
   
    
   export const csvDataArray = [
-    ['user', 'user_email', 'subscribed', 'date', 'source\r'],
-    ['sam spint', 'ssprint@outlook.com', 'TRUE', '6/1/2021', 'data_data.csv\r'],
-    ['brandy bank', 'bbrandy@gmail.com', 'TRUE', '8/10/2020', 'data_data.csv\r'],
-    ['harry homes', 'hhomes@aol.com', 'FALSE', '1/2/2023', 'data_data.csv\r'],
-    ['tony tiger', 'ttiger@yahoo.com', 'FALSE', '7/9/2022', 'data_data.csv\r'],
-    ['bruce bond', 'bbond@gmail.com', 'TRUE', '4/25/2020', 'data_data.csv\r'],
-    ['luke luck', 'lluck@hotmailcom', 'TRUE', '8/9/2020', 'data_data.csv\r'],
-    ['tom powers', 'tp@aol.com', 'FALSE', '9/12/2020', 'data_data.csv\r'],
-    ['']
+    ['sam spint', 'ssprint@outlook.com', 'TRUE', '6/1/2021', 'data_data.csv'],
+    ['brandy bank', 'bbrandy@gmail.com', 'TRUE', '8/10/2020', 'data_data.csv'],
+    ['harry homes', 'hhomes@aol.com', 'FALSE', '1/2/2023', 'data_data.csv'],
+    ['tony tiger', 'ttiger@yahoo.com', 'FALSE', '7/9/2022', 'data_data.csv'],
+    ['bruce bond', 'bbond@gmail.com', 'TRUE', '4/25/2020', 'data_data.csv'],
+    ['luke luck', 'lluck@hotmail.com', 'TRUE', '8/9/2020', 'data_data.csv'],
+    ['tom powers', 'tp@aol.com', 'FALSE', '9/12/2020', 'data_data.csv'],
   ]
 
   
