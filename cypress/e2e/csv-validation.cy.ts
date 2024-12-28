@@ -12,7 +12,7 @@ const parseCsv = (content: string) => {
   return filteredRows.map((row) => row.split(","));
 };
 
-describe("homepage test cases", () => {
+describe("csv test cases", () => {
   beforeEach(() => {
     cy.visit(data.pageData.homepageUrl);
     cy.get(homepageSelectors.getMockDataPage).scrollIntoView();
