@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - NAME: Run ESLint
+      - name: Run ESLint
         run: npx eslint . --ext
 
       - name: Start application
