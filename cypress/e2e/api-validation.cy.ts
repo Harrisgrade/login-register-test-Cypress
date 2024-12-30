@@ -1,6 +1,9 @@
 import { createUserRequest} from "../fixtures/apiData";
-import Ajv from "ajv";
-const ajv = new Ajv();
+import addFormats from "ajv-formats";
+import AjvDraft04 from "ajv-draft-04";
+
+const ajv = new AjvDraft04();
+addFormats(ajv);
 
 const createUserSchema = 
 {
