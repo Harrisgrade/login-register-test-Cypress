@@ -27,19 +27,19 @@ describe("csv test cases", () => {
     cy.readFile("cypress/downloads/dummy.csv").then((fileContent) => {
       const rows = parseCsv(fileContent);
       cy.wrap(rows).each((row) => {
-        cy.wrap(row[0]).should("be.a", "string");
-        cy.wrap(row[1])
-          .should("be.a", "string")
-          .and("match", /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
-        cy.wrap(row[2]).should("match", /^(TRUE|FALSE)$/);
-        cy.wrap(row[3]).should("match", /^\d{1,2}\/\d{1,2}\/\d{4}$/);
-        cy.wrap(row[4]).should("match", /^data_data.csv$/);
+        cy.wrap(row).should((row) => {
+          expect(row[0]).to.be.a("string");
+          expect(row[1]).to.be.a("string").and.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+          expect(row[2]).to.match(/^(TRUE|FALSE)$/);
+          expect(row[3]).to.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/);
+          expect(row[4]).to.match(/^data_data.csv$/);
+        });
       });
     });
   });
   it("validate header", () => {
     cy.readFile("cypress/downloads/dummy.csv").then((fileContent) => {
-      const header = fileContent.replace(/\r/g, "").split("\n")[0].split(",");
+      const header = fileContent.replace(/\r/g, "")?.split("\n")?.[0]?.split(",");
       cy.wrap(header).should("deep.equal", [
         "user",
         "user_email",
